@@ -1,0 +1,42 @@
+---
+# tasks file for mosh
+- name: Install mosh from HEAD (homebrew)
+  homebrew:
+    name: mosh
+    state: present
+    install_options: head
+  tags: install
+
+- name: Create Shared Script Directory
+  file:
+    path: /Users/shared/.startup
+    state: directory
+  become: yes
+
+- name: copy most firewall shell script
+  copy:
+    src: mosh.sh
+    dest: /Users/shared/.startup
+    owner: root
+    group: wheel
+    mode: 0744
+  become: yes
+
+- name: copy mosh plist
+  copy:
+    src: com.mosh.plist
+    dest: /Library/LaunchDaemons/com.mosh.plist
+    owner: root
+    group: wheel
+    mode: 0644
+  become: yes
+
+- name: add mosh plist to launch control
+  shell:
+    cmd: launchctl load -w "/Library/LaunchDaemons/com.mosh.plist"
+  become: yes
+
+- name: run mosh filewall script
+  shell:
+    cmd: /Users/shared/.startup/mosh.sh
+  become: yes
