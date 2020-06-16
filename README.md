@@ -1,7 +1,9 @@
-Role Name
+Mosh
 =========
 
-A brief description of the role goes here.
+A way to install and configure Mosh for different platforms.
+
+Right now this only covers support for Mac OS. In the future, it will include support for Windows and WSL2.
 
 Requirements
 ------------
