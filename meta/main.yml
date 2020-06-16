@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Patrick Wagstrom
+  description: Install a 24-bit capable version of mosh
+  issue_tracker_url: https://github.com/pridkett/ansible-role-mosh/issues
+  license: MIT
+
+  min_ansible_version: 2.3
+
+  platforms:
+  - name: Ubuntu
+    versions:
+      - all
+  - name: macOS
+    versions:
+      - Sierra
+      - High Sierra
+      - Mojave
+      - Catalina 
+
+  galaxy_tags: []
+
+dependencies: []
+  
